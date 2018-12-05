@@ -1,0 +1,17 @@
+ID: xsa_image_processing
+_schema-version: '2.1'
+version: 0.0.1
+
+modules:
+ - name: ui5
+   type: html5
+   path: .che/ui5
+
+ - name: node
+   type: nodejs
+   path: node
+   provides:
+    - name: node_api
+      properties:
+         url: ${default-url}
+
