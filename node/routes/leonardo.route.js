@@ -10,8 +10,8 @@ router.get('/', (req, res, next) => {
 router.post('/url', (req, res, next) => {
 	console.log("[SUCCESS] calling /url ");
 	
-	// can't get user-provided service through xsenv?
-	console.log(xsenv.readCFServices());
+	// Use the following command to get all services, and info required for the .getServices function to work correctly.
+	// console.log(xsenv.readCFServices());
 	const services = xsenv.getServices({
 		query1: {
 			name: "LEONARDO",
