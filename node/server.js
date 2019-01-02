@@ -6,7 +6,15 @@ var express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
+var bodyParser = require('body-parser');
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+
 app.get('/', (req, res) => res.send('Image Processing Application'));
+app.use('/leonardo', require("./routes/leonardo.route"));
 
 app.listen(port, ()=>{
 	console.log(`Application listening on port ${port}`);

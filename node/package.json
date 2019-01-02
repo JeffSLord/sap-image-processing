@@ -6,7 +6,10 @@
     "jasmine-reporters": "2.1.1",
     "gulp-jasmine": "2.4.1",
     "gulp-istanbul": "1.1.1",
-    "express": "x"
+    "express": "x",
+    "form-data": "x",
+    "multer": "x",
+    "@sap/xsenv": "x"
   },
   "files": [],
   "main": "server.js",

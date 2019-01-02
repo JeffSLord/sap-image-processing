@@ -1,5 +1,5 @@
 {
-	"name": "image-approuter",
+	"name": "ui5-approuter",
 	"engines": {
 		"node": ">=4.0.0 <9.0.0"
 	},
