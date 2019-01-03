@@ -19,24 +19,24 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 			}
 			var fileName = file.name;
 
-			var formData = new FormData();
-			// formData.append("files", file, fileName);
-
 			var optionList = this.getView().byId("optionList");
 			var selectedOption = optionList.getSelectedKey();
 			var resultPanel = this.getView().byId("resultPanel");
 			resultPanel.setBusy(true);
+			
+			var formData = new FormData();
+			formData.append("file", file, fileName);
+			formData.append("option", selectedOption);
+			
 			$.ajax({
 				url: '/node/leonardo/url',
 				timeout: 3600000,
 				// 'Accept': 'application/json',
 				// 'Accept' : 'multipart/form-data',
 				type: 'post',
-				// processData: false,
-				// contentType: false,
-				data: {
-					option: selectedOption
-				},
+				processData: false,
+				contentType: false,
+				data: formData,
 				success: (data) => {
 					console.log("[SUCCESS]", data);
 					formData.append(data.ftype, file, fileName);
@@ -82,6 +82,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 			var formData = new FormData();
 			var fileName = baseImage.name;
 			formData.append("files", baseImage, fileName);
+			formData.append("option", option);
 
 			$.ajax({
 				url:'/node/image/box',

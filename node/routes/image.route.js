@@ -6,13 +6,15 @@ router.get('/box', (req, res, next) => {
 	res.send("Box get");	
 });
 router.post('/box', (req, res, next) => {
-	console.log("[INFO] Box called.");
-	var form = new formidable.IncomingForm();
-	form.parse(req, function (err, fields, files) {
-		res.write('File uploaded');
-		res.end();
-		// console.log(files);
-	});
+	// console.log("[INFO] Box called.");
+	// var form = new formidable.IncomingForm();
+	// form.parse(req, function (err, fields, files) {
+	// 	res.write('File uploaded');
+	// 	res.end();
+	// 	console.log(files);
+	// 	console.log(fields);
+	// 	console.log(fields.option);
+	// });
 });
 
 module.exports = router;
