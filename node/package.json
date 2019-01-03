@@ -9,7 +9,8 @@
     "express": "x",
     "form-data": "x",
     "multer": "x",
-    "@sap/xsenv": "x"
+    "@sap/xsenv": "x",
+    "formidable": "x"
   },
   "files": [],
   "main": "server.js",

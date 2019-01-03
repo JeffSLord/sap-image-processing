@@ -13,35 +13,34 @@ router.post('/url', (req, res, next) => {
 	// Use the following command to get all services, and info required for the .getServices function to work correctly.
 	// console.log(xsenv.readCFServices());
 	const services = xsenv.getServices({
-		query1: {
+		leonardo: {
 			name: "LEONARDO",
 			label: "user-provided"
 		}
 	});
-	// console.log(xsenv.getServices({
-	// 	LEONARDO: {
-	// 		name:"LEONARDO",
-	// 		tag:"user-provided"
-	// 	}
-	// }));
-	// console.log(req.body.files);
-	// console.log(req.headers);
-	// console.log(req.body);
-	// console.log(req.files);
-	// console.log(req.file);
-	// res.send('post');
-
-	// switch(req.body.option){
-	// 	case "option1":
-	// 		res.send('https://sandbox.api.sap.com/ml/facedetection/face-detection');
-	// 		break;
-	// 	case "option2":
-	// 		res.send('https://sandbox.api.sap.com/ml/humandetection/human-detection');
-	// 		break;
-	// 	case "option3":
-	// 		res.send('https://sandbox.api.sap.com/ml/imageclassification/classification');
-	// 		break;
-	// }
+	// console.log(services.leonardo.api_key);
+	
+	var url = "";
+	var ftype = "";
+	switch(req.body.option){
+		case "option1":
+			url = 'https://sandbox.api.sap.com/ml/facedetection/face-detection';
+			ftype='files';
+			break;
+		case "option2":
+			url = 'https://sandbox.api.sap.com/ml/humandetection/human-detection/';
+			ftype='file';
+			break;
+		case "option3":
+			url = 'https://sandbox.api.sap.com/ml/imageclassification/classification';
+			ftype='files';
+			break;
+	}
+	res.send({
+		url: url,
+		api_key: services.leonardo.api_key,
+		ftype: ftype
+	});
 });
 // classification = (req, res, next) =>{
 // 	var url = 'https://sandbox.api.sap.com/ml/imageclassification/classification';

@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req, res) => res.send('Image Processing Application'));
 app.use('/leonardo', require("./routes/leonardo.route"));
+app.use('/image', require("./routes/image.route"));
 
 app.listen(port, ()=>{
 	console.log(`Application listening on port ${port}`);
