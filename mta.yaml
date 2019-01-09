@@ -1,10 +1,10 @@
-ID: xsa_image_processing
+ID: xsa-image-processing
 _schema-version: '2.1'
 version: 0.0.1
 modules:
-  - name: node
+  - name: node_image_processing
     type: nodejs
-    path: node
+    path: node_image_processing
     provides:
       - name: node_api
         properties:
@@ -12,9 +12,9 @@ modules:
     properties: {}
     requires:
       - name: LEONARDO
-  - name: ui5
+  - name: ui5_image_processing
     type: html5
-    path: ui5
+    path: ui5_image_processing
     requires:
       - name: LEONARDO
       - name: node_api
@@ -25,6 +25,6 @@ modules:
           forwardAuthToken: true
 resources:
   - name: LEONARDO
-    type: org.cloudfoundry.user-provided-service
+    type: org.cloudfoundry.existing-service
     parameters:
       service-name: LEONARDO
