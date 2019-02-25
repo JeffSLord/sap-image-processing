@@ -10,7 +10,9 @@
     "form-data": "x",
     "multer": "x",
     "@sap/xsenv": "x",
-    "formidable": "x"
+    "formidable": "x",
+    "pureimage":"x",
+    "@google-cloud/vision":"x"
   },
   "files": [],
   "main": "server.js",

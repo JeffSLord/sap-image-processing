@@ -13,7 +13,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 			var fileUploader = this.getView().byId("fileUploader");
 			var domRef = fileUploader.getFocusDomRef();
 			var file = domRef.files[0];
-			if(file == null){
+			if (file == null) {
 				sap.m.MessageToast.show("Please upload a file.");
 				return;
 			}
@@ -72,6 +72,28 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 			});
 		},
 		drawImage: function (baseImage, data, option) {
+			var oCanvas = document.createElement("canvas");
+			// make canvas fit the image
+			// oCanvas.width = baseImage.width;
+			// oCanvas.height = baseImage.height;
+			// reduce opacity of context, then applied to the image
+			var ctx = oCanvas.getContext("2d");
+			// oContext.globalAlpha = 0.2;
+			
+
+			var image = this.getView().byId("image");
+			// var path = URL.createObjectURL(baseImage);
+			// // image.setSrc(path);
+			// var img = new Image();
+			// img.src = path;
+			// oCanvas.width = img.width;
+			// oCanvas.height = img.height;
+			// ctx.drawImage(img, 0, 0); // paint the image onto the canvas
+
+			// retrieve the manipulated base64-represenation of the image from the canvas
+			// var sBase64 = oCanvas.toDataURL("image/jpeg", 1.0); // retrieve as JPG in 100% quality
+			
+			////
 			var image = this.getView().byId("image");
 			var path = URL.createObjectURL(baseImage);
 			image.setSrc(path);
@@ -84,7 +106,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 			formData.append("files", baseImage, fileName);
 
 			$.ajax({
-				url:'/node/image/box',
+				url: '/node/image/box',
 				type: 'post',
 				timeout: 36000,
 				processData: false,
@@ -97,6 +119,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
 					console.error(err);
 				}
 			});
+			////
 		}
 	});
 });

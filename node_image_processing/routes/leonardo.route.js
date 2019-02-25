@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const xsenv = require("@sap/xsenv");
+const vision = require('@google-cloud/vision');
+
 
 router.get('/', (req, res, next) => {
 	console.log("[SUCCESS] calling /");
@@ -35,6 +37,9 @@ router.post('/url', (req, res, next) => {
 			url = 'https://sandbox.api.sap.com/ml/imageclassification/classification';
 			ftype='files';
 			break;
+		case "option4":
+			url = 'https://vision.googleapis.com/v1/files:asyncBatchAnnotate';
+			break;
 	}
 	res.send({
 		url: url,
@@ -42,14 +47,5 @@ router.post('/url', (req, res, next) => {
 		ftype: ftype
 	});
 });
-// classification = (req, res, next) =>{
-// 	var url = 'https://sandbox.api.sap.com/ml/imageclassification/classification';
-// };
-// exports.human = (req, res, next) =>{
-// 	var url = 'https://sandbox.api.sap.com/ml/humandetection/human-detection';
-// };
-// exports.face = (req, res, next) =>{
-// 	var url = 'https://sandbox.api.sap.com/ml/facedetection/face-detection';
-// };
 
 module.exports = router;
