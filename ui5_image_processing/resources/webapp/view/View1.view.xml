@@ -14,7 +14,7 @@
 											<sap.ui.core:ListItem text="Face Detection" key="option1" id="__item0"/>
 											<sap.ui.core:ListItem text="Human Detection" key="option2" id="__item1"/>
 											<sap.ui.core:ListItem text="Classification" key="option3" id="__item2"/>
-											<sap.ui.core:ListItem text="Test" key="option4" id="__item3"/>
+											<sap.ui.core:ListItem text="Google DOCUMENT_TEXT_DETECTION (hardcoded file)" key="option4" id="__item3"/>
 										</items>
 									</SelectList>
 									<Button xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" text="Process" width="100px" id="button1" press="onButton"/></sap.ui.layout.form:content>

@@ -14,7 +14,7 @@ router.post('/url', (req, res, next) => {
 	
 	// Use the following command to get all services, and info required for the .getServices function to work correctly.
 	// console.log(xsenv.readCFServices());
-	const services = xsenv.getServices({
+	const leonardo_service = xsenv.getServices({
 		leonardo: {
 			name: "LEONARDO",
 			label: "user-provided"
@@ -24,6 +24,8 @@ router.post('/url', (req, res, next) => {
 	
 	var url = "";
 	var ftype = "";
+	var api_key=leonardo_service.leonardo.api_key;
+	var api_type = "sap";
 	switch(req.body.option){
 		case "option1":
 			url = 'https://sandbox.api.sap.com/ml/facedetection/face-detection';
@@ -38,12 +40,15 @@ router.post('/url', (req, res, next) => {
 			ftype='files';
 			break;
 		case "option4":
-			url = 'https://vision.googleapis.com/v1/files:asyncBatchAnnotate';
+			url = 'https://vision.googleapis.com/v1/images:annotate?key='+process.env.GOOGLE_API;
+			api_key=process.env.GOOGLE_API;
+			api_type="google";
 			break;
 	}
 	res.send({
 		url: url,
-		api_key: services.leonardo.api_key,
+		api_type: api_type,
+		api_key: api_key,
 		ftype: ftype
 	});
 });

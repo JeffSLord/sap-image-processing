@@ -12,7 +12,8 @@
     "@sap/xsenv": "x",
     "formidable": "x",
     "pureimage":"x",
-    "@google-cloud/vision":"x"
+    "@google-cloud/vision":"x",
+    "dotenv":"x"
   },
   "files": [],
   "main": "server.js",
